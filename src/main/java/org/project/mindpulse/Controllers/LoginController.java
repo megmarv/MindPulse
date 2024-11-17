@@ -7,15 +7,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.project.mindpulse.SystemManagement.UserHandler;
 
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController extends UserHandler{
 
-    @FXML
-    private Button goToCreateAccountPage;
+    @FXML private TextField username;
+    @FXML private TextField password;
+
+    @FXML private Button LoginButton;
+    @FXML private Button goToCreateAccountPage;
 
     @FXML
     private void redirectToCreateAccountPage(ActionEvent event) throws IOException {
@@ -28,4 +33,17 @@ public class LoginController {
         stage.show();
     }
 
+    @FXML
+    private void login(ActionEvent event) {
+        String name = username.getText();
+        String pass = password.getText();
+
+        boolean exists = UserHandler.userExists(name, pass);
+        if (exists) {
+            System.out.println("User exists in the database.");
+        } else {
+            System.out.println("User does not exist.");
+        }
+
+    }
 }

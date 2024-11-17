@@ -19,12 +19,10 @@ public class DatabaseHandler {
             String createUserTable = """
             CREATE TABLE IF NOT EXISTS Users (
                 UserID SERIAL PRIMARY KEY,
-                Fname VARCHAR(20) NOT NULL,
-                Lname VARCHAR(20) NOT NULL,
-                Age INT,
+                name VARCHAR(20) NOT NULL,
                 email VARCHAR(50),
                 username VARCHAR(20),
-                password VARCHAR(20)
+                password VARCHAR(30)
             );
         """;
             stmt.execute(createUserTable);
@@ -34,7 +32,7 @@ public class DatabaseHandler {
             CREATE TABLE IF NOT EXISTS Categories (
                 CategoryID SERIAL PRIMARY KEY,
                 CategoryName VARCHAR(30),
-                Description VARCHAR(60)
+                Description VARCHAR(100)
             );
         """;
             stmt.execute(createCategoryTable);
@@ -42,13 +40,14 @@ public class DatabaseHandler {
             // Create Articles table if it doesn't exist
             String createArticlesTable = """
             CREATE TABLE IF NOT EXISTS Articles (
-                ArticleID SERIAL PRIMARY KEY,
-                CategoryID INT,
-                Title VARCHAR(100),
-                AuthorName VARCHAR(100),
-                content TEXT,
-                FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
-            );
+                            ArticleID SERIAL PRIMARY KEY,
+                            CategoryID INT,
+                            Title VARCHAR(100),
+                            AuthorName VARCHAR(100),
+                            content TEXT,
+            				DateOfPublish Date,
+                            FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+                        );
         """;
             stmt.execute(createArticlesTable);
 

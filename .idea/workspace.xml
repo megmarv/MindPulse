@@ -4,37 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d5b950-f468-4528-8d5b-5c346434fc01" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/CreateAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Article.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/ArticleInteractions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/MindPulse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/ArticleHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/DatabaseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/ArticleFetcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/ArticleParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/CreateAccountPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/LoginPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/styles.css" afterDir="false" />
+    <list default="true" id="94d5b950-f468-4528-8d5b-5c346434fc01" name="Changes" comment="finished setting up the project over a couple days and multiple trials and errors">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/UserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/CreateAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/CreateAccountPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/CreateAccountPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/LoginPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +25,8 @@
       <list>
         <option value="Interface" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -128,12 +107,25 @@
       <updated>1731669676397</updated>
       <workItem from="1731669677502" duration="13326000" />
       <workItem from="1731691449452" duration="1528000" />
-      <workItem from="1731762412311" duration="7506000" />
+      <workItem from="1731762412311" duration="16012000" />
     </task>
+    <task id="LOCAL-00001" summary="finished setting up the project over a couple days and multiple trials and errors">
+      <option name="closed" value="true" />
+      <created>1731772686834</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731772686834</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finished setting up the project over a couple days and multiple trials and errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished setting up the project over a couple days and multiple trials and errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

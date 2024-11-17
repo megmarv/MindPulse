@@ -19,17 +19,17 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <TextField layoutX="276.0" layoutY="106.0" promptText=" username or email">
+      <TextField layoutX="276.0" layoutY="106.0" promptText=" username or email" fx:id="username">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="277.0" layoutY="153.0" promptText="password">
+      <TextField layoutX="277.0" layoutY="153.0" promptText="password" fx:id="password">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Button layoutX="307.0" layoutY="203.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="125.0" text="Sign In">
+      <Button layoutX="307.0" layoutY="203.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="125.0" text="Sign In" fx:id="LoginButton" onAction="#login">
          <font>
             <Font size="15.0" />
          </font>
