@@ -2,9 +2,14 @@ package org.project.mindpulse.SystemManagement;
 
 import org.project.mindpulse.CoreModules.Article;
 import org.project.mindpulse.CoreModules.ArticleInteractions;
+import org.project.mindpulse.CoreModules.Category;
+import org.project.mindpulse.CoreModules.User;
+import org.project.mindpulse.UserService.APIFetcher;
+import org.project.mindpulse.UserService.RecommendationEngine;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArticleHandler extends DatabaseHandler {
 
@@ -28,9 +33,10 @@ public class ArticleHandler extends DatabaseHandler {
                 String authorName = rs.getString("authorname");
                 String content = rs.getString("content");
                 Date dateOfPublish = rs.getDate("dateofpublish");
+                boolean fetched = rs.getBoolean("fetched");
 
                 // Create a new Article object
-                Article article = new Article(articleId, categoryId, title, authorName, content, dateOfPublish);
+                Article article = new Article(articleId, categoryId, title, authorName, content, dateOfPublish,fetched);
 
                 // Add the article to the static list
                 Article.articleList.add(article);
@@ -71,36 +77,6 @@ public class ArticleHandler extends DatabaseHandler {
     }
 
 
-
-    // Optionally, you can add more methods to handle other CRUD operations
-    public Article getArticleById(int articleId) {
-        Article article = null;
-
-        String query = "SELECT * FROM Articles WHERE articleID = ?";
-
-        try (Connection conn = DatabaseHandler.connect();
-             PreparedStatement ps = conn.prepareStatement(query)) {
-
-            ps.setInt(1, articleId);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                int categoryId = rs.getInt("categoryId");
-                String title = rs.getString("title");
-                String authorName = rs.getString("authorName");
-                String content = rs.getString("content");
-                Date dateOfPublish = rs.getDate("dateOfPublish");
-
-                article = new Article(articleId, categoryId, title, authorName, content, dateOfPublish);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return article;
-    }
-
     public boolean hasUserInteracted(int userId, int articleId) {
         String query = "SELECT COUNT(*) FROM ARTICLEINTERACTIONS WHERE userid = ? AND articleid = ?";
 
@@ -123,5 +99,29 @@ public class ArticleHandler extends DatabaseHandler {
 
         return false; // User has not interacted with the article
     }
+
+    public boolean insertFetchedArticle(Article article, int categoryId) {
+        String query = """
+        INSERT INTO Articles (CategoryID, Title, AuthorName, Content, DateOfPublish, Fetched)
+        VALUES (?, ?, ?, ?, ?, TRUE)
+    """;
+
+        try (Connection conn = connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, categoryId);
+            ps.setString(2, article.getTitle());
+            ps.setString(3, article.getAuthorName());
+            ps.setString(4, article.getContent());
+            ps.setDate(5, new java.sql.Date(article.getDateOfPublish().getTime()));
+
+            int rowsInserted = ps.executeUpdate();
+            return rowsInserted > 0; // Return true if insertion is successful
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }

@@ -4,41 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d5b950-f468-4528-8d5b-5c346434fc01" name="Changes" comment="established connection between the database for user actions">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/AdminLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/FirstPageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/GeneralFeatures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/UserProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/UserProfileHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/RecommendationEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/AdminLogin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/CreateAccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/FirstPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/HomePage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/UserLogin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/UserProfile.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/alerts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/articleStyles.css" afterDir="false" />
+    <list default="true" id="94d5b950-f468-4528-8d5b-5c346434fc01" name="Changes" comment="couldn't update for a few days">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/CreateAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/ArticleInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/ArticleInteractions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/CoreModules/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/MindPulse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/Application/MindPulse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/ArticleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/ArticleHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/SystemManagement/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/ArticleFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/ArticleFetcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/CreateAccountPage.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/LoginPage.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/project/mindpulse/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/ArticleFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/APIFetcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/ArticleParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/RecommendationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/mindpulse/UserService/RecommendationEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +131,8 @@
       <workItem from="1732434859334" duration="4091000" />
       <workItem from="1732446370314" duration="9807000" />
       <workItem from="1732471151721" duration="4498000" />
+      <workItem from="1732514193757" duration="12458000" />
+      <workItem from="1732547456253" duration="6850000" />
     </task>
     <task id="LOCAL-00001" summary="finished setting up the project over a couple days and multiple trials and errors">
       <option name="closed" value="true" />
@@ -170,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731818162975</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="couldn't update for a few days">
+      <option name="closed" value="true" />
+      <created>1732514264453</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732514264453</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +167,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finished setting up the project over a couple days and multiple trials and errors" />
     <MESSAGE value="established connection between the database for user actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="established connection between the database for user actions" />
+    <MESSAGE value="couldn't update for a few days" />
+    <option name="LAST_COMMIT_MESSAGE" value="couldn't update for a few days" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

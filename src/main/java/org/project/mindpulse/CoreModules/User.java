@@ -12,9 +12,9 @@ public class User {
     private String username;
     private String password;
 
-    private List<Category> favouriteCategories;
+    private List<String> favouriteCategories;
 
-    public User(int userId, String name, String email, String username, String password, List<Category> favouriteCategories) {
+    public User(int userId, String name, String email, String username, String password, List<String> favouriteCategories) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -72,15 +72,15 @@ public class User {
     }
 
 
-    public List<Category> getFavouriteCategories() {
+    public List<String> getFavouriteCategories() {
         return favouriteCategories;
     }
 
-    public void setFavouriteCategories(List<Category> favouriteCategories) {
+    public void setFavouriteCategories(List<String> favouriteCategories) {
         this.favouriteCategories = favouriteCategories;
     }
 
-    public void addFavouriteCategory(Category category) {
+    public void addFavouriteCategory(String category) {
         this.favouriteCategories.add(category);
     }
 

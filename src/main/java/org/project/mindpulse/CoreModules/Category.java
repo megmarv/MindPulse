@@ -35,6 +35,12 @@ public class Category {
         this.categoryDescription = null;
     }
 
+    public Category(int categoryId, String categoryName) {
+        this.categoryID = categoryId;
+        this.categoryName = categoryName;
+        this.categoryDescription = null;
+    }
+
     // Getter for the predefined categories
     public static List<Category> getPredefinedCategories() {
         return predefinedCategories;
@@ -42,7 +48,7 @@ public class Category {
 
     // Getters for category properties
     public String getCategoryName() { return categoryName; }
-    public int getCategoryID() { return categoryID; }
+    public int getCategoryId() { return categoryID; }
     public String getCategoryDescription() { return categoryDescription; }
 
     public void setCategoryName(String categoryName) {

@@ -4,6 +4,7 @@ module org.project.mindpulse {
     requires java.sql;
     requires jdk.compiler;
     requires javafx.web;
+    requires org.json;
 
 
     opens org.project.mindpulse.Controllers to javafx.fxml;

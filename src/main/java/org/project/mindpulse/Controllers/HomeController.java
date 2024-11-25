@@ -17,27 +17,39 @@ import org.project.mindpulse.CoreModules.ArticleInteractions;
 import org.project.mindpulse.CoreModules.User;
 import org.project.mindpulse.SystemManagement.ArticleHandler;
 import org.project.mindpulse.SystemManagement.UserHandler;
+import org.project.mindpulse.UserService.RecommendationEngine;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeController extends ArticleHandler implements GeneralFeatures{
+public class HomeController extends ArticleHandler implements GeneralFeatures {
 
-    @FXML private Label contentHeader;
-    @FXML private WebView webview;
-    @FXML private Button refreshButton;
+    @FXML
+    private Label contentHeader;
+    @FXML
+    private WebView webview;
+    @FXML
+    private Button refreshButton;
 
-    @FXML private Button sports;
-    @FXML private Button entertainment;
-    @FXML private Button business;
-    @FXML private Button politics;
-    @FXML private Button health;
-    @FXML private Button education;
+    @FXML
+    private Button sports;
+    @FXML
+    private Button entertainment;
+    @FXML
+    private Button business;
+    @FXML
+    private Button politics;
+    @FXML
+    private Button health;
+    @FXML
+    private Button education;
 
-    @FXML private Button home; // Added button for Home category
-    @FXML private Button profile;
+    @FXML
+    private Button home; // Added button for Home category
+    @FXML
+    private Button profile;
 
     private int currentArticleIndex = 0; // To track the current article
     private List<Article> filteredArticles = new ArrayList<>(); // Temporary list for filtered articles
@@ -106,21 +118,9 @@ public class HomeController extends ArticleHandler implements GeneralFeatures{
     }
 
     @FXML
-    private void filterRecommendedArticles() {
-        // For now, we'll display some random articles as "recommended"
-        filteredArticles.clear();
-        for (Article article : Article.articleList) {
-            // Assuming we are selecting articles based on some logic for recommendations
-            // Here we just use a simple condition for the demonstration (e.g., top 5 articles)
-            if (filteredArticles.size() < 5) {
-                filteredArticles.add(article);
-            }
-        }
-        currentArticleIndex = 0; // Start from the first recommended article
-    }
-
-    @FXML private Button thumbsUp;  // Thumbs Up button
-    @FXML private Button thumbsDown; // Thumbs Down button
+    private Button thumbsUp;  // Thumbs Up button
+    @FXML
+    private Button thumbsDown; // Thumbs Down button
 
     // Handle Thumbs Up action
     @FXML
@@ -296,7 +296,7 @@ public class HomeController extends ArticleHandler implements GeneralFeatures{
 
 
     @FXML
-    public void Exit(ActionEvent exit) throws IOException{
+    public void Exit(ActionEvent exit) throws IOException {
 
         Platform.exit();
 
@@ -308,5 +308,28 @@ public class HomeController extends ArticleHandler implements GeneralFeatures{
         UserProfileController userProfileController = new UserProfileController();
         userProfileController.redirectToProfile(event);
 
+    }
+
+    @FXML
+    private void filterRecommendedArticles() {
+        User loggedInUser = UserHandler.getLoggedInUser();
+
+        if (loggedInUser == null) {
+            System.out.println("No logged-in user. Cannot fetch recommendations.");
+            return;
+        }
+
+        // Use RecommendationEngine to fetch recommended articles
+        RecommendationEngine recommendationEngine = new RecommendationEngine();
+        filteredArticles = recommendationEngine.getRecommendedArticlesForUser(loggedInUser);
+
+        if (filteredArticles.isEmpty()) {
+            System.out.println("No recommended articles found.");
+            contentHeader.setText("No recommended articles found.");
+            webview.getEngine().loadContent("<html><body><p>No content available</p></body></html>");
+        } else {
+            currentArticleIndex = 0; // Reset index
+            displayArticle(filteredArticles.get(currentArticleIndex)); // Display the first recommended article
+        }
     }
 }

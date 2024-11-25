@@ -14,6 +14,7 @@ public class Article {
     private String authorName;
     private String content;
     private Date dateOfPublish;
+    private boolean fetched;
 
     private ArticleInteractions articleInteraction;
 
@@ -33,9 +34,21 @@ public class Article {
         this.authorName = null;
         this.content = null;
         this.dateOfPublish = null;
+        this.fetched = false;
     }
 
     // Constructor with all fields
+    public Article(int articleId, int categoryId, String title, String authorName, String content, Date dateOfPublish,boolean fetched) {
+        this.articleId = articleId;
+        this.categoryId = categoryId;
+        this.title = title;
+        this.authorName = authorName;
+        this.content = content;
+        this.dateOfPublish = dateOfPublish;
+        this.fetched = fetched;
+    }
+
+    // Constructor without articleId (for inserts where ID is auto-generated)
     public Article(int articleId, int categoryId, String title, String authorName, String content, Date dateOfPublish) {
         this.articleId = articleId;
         this.categoryId = categoryId;
@@ -45,18 +58,9 @@ public class Article {
         this.dateOfPublish = dateOfPublish;
     }
 
-    // Constructor without articleId (for inserts where ID is auto-generated)
-    public Article(int categoryId, String title, String authorName, String content, Date dateOfPublish) {
-        this.categoryId = categoryId;
-        this.title = title;
-        this.authorName = authorName;
-        this.content = content;
-        this.dateOfPublish = dateOfPublish;
-    }
-
     public String getCategoryById(int id){
         for(Category category : getPredefinedCategories()){
-            if (category.getCategoryID()==id){
+            if (category.getCategoryId()==id){
                 return category.getCategoryName();
             }
 
