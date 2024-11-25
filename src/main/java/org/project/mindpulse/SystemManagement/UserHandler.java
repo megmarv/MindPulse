@@ -6,43 +6,55 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserHandler {
+public class UserHandler extends DatabaseHandler {
 
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/MindPulse";
     private static final String DB_USER = "postgres";
     private static final String DB_PASSWORD = "aaqib2004";
 
-    private List<User> ListOfUsersInDatabase = new ArrayList();
 
-    public List<User> getListOfUsersInDatabase() {
+    // Static field to hold the currently logged-in user
+    private static User loggedInUser = null;
 
-        ListOfUsersInDatabase.clear(); //clear any elements already residing within the list for clarity
+    // Getter for the logged-in user
+    public static User getLoggedInUser() {
+        return loggedInUser;
+    }
 
-        String query = "SELECT * FROM Users";
+    // Method to authenticate and log in a user
+    public static boolean loginUser(String username, String password) {
+        String query = "SELECT * FROM Users WHERE username = ? AND password = ?";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-            // iterate through the users in the database
-            while (rs.next()) {
-                int userID = rs.getInt("UserID");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
 
-                // Creating a new user object
-                User user = new User(userID, name, email, username, password);
-                ListOfUsersInDatabase.add(user);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    int userId = rs.getInt("UserID");
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+
+                    // Set the logged-in user
+                    loggedInUser = new User(userId, name, email, username, password);
+                    System.out.println("User logged in: " + loggedInUser);
+                    return true;
+                }
             }
-
         } catch (SQLException e) {
-            System.out.println("Error while loading users: " + e.getMessage());
+            System.err.println("Error logging in user: " + e.getMessage());
             e.printStackTrace();
         }
 
-        return ListOfUsersInDatabase;
+        return false;
+    }
+
+    // Method to log out the user
+    public static void logoutUser() {
+        loggedInUser = null;
+        System.out.println("User logged out.");
     }
 
     public static boolean createNewUser(String name, String email, String username, String password) {
@@ -122,5 +134,35 @@ public class UserHandler {
         // Return false if the user does not exist or an error occurs
         return false;
     }
+
+    public User getUser(String username, String password) {
+        String query = "SELECT * FROM Users WHERE username = ? AND password = ?";
+        User user = null;
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    int userId = rs.getInt("UserID");
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+
+                    // Create a new User object with all details
+                    user = new User(userId, name, email, username, password);
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error retrieving user details: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
 
 }

@@ -1,34 +1,47 @@
 package org.project.mindpulse.CoreModules;
 
-import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArticleInteractions {
-    private Article article;  // Reference to an Article object
+
+    private Article article; // Reference to an Article object
+
     private int interactionId;
+    private int articleID;
     private int categoryId;
     private int userId;
     private boolean liked;
     private boolean disliked;
-    private Time timeTaken;
+    private long timeTakenMillis; // Store duration in milliseconds
 
-    public ArticleInteractions(Article article, int interactionId, int categoryId, int userId, boolean liked, boolean disliked, Time timeTaken) {
-        this.article = article;
+
+    public ArticleInteractions(int articleID, int interactionId, int categoryId, int userId, boolean liked, boolean disliked, long timeTakenMillis) {
+        this.articleID = articleID;
         this.interactionId = interactionId;
         this.categoryId = categoryId;
         this.userId = userId;
         this.liked = liked;
         this.disliked = disliked;
-        this.timeTaken = timeTaken;
+        this.timeTakenMillis = timeTakenMillis;
     }
 
     public ArticleInteractions(int interactionId) {
         this.interactionId = interactionId;
-        this.article = null;
+        this.articleID = 0;
         this.liked = false;
         this.disliked = false;
-        this.timeTaken = null;
+        this.timeTakenMillis = 0;
         this.categoryId = 0;
         this.userId = 0;
+    }
+
+    public int getArticleID() {
+        return articleID;
+    }
+
+    public void setArticleID(int articleID) {
+        this.articleID = articleID;
     }
 
     public Article getArticle() {
@@ -79,11 +92,16 @@ public class ArticleInteractions {
         this.disliked = disliked;
     }
 
-    public Time getTimeTaken() {
-        return timeTaken;
+    public long getTimeTakenMillis() {
+        return timeTakenMillis;
     }
 
-    public void setTimeTaken(Time timeTaken) {
-        this.timeTaken = timeTaken;
+    public void setTimeTakenMillis(long timeTakenMillis) {
+        this.timeTakenMillis = timeTakenMillis;
+    }
+
+    public String getTimeTakenAsInterval() {
+        long seconds = timeTakenMillis / 1000;
+        return seconds + " seconds";
     }
 }

@@ -4,58 +4,42 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.project.mindpulse.SystemManagement.UserHandler;
 
 import java.io.IOException;
 
-public class CreateAccountController extends UserHandler implements GeneralFeatures{
-
-    @FXML private TextField nameField;
-    @FXML private TextField emailField;
-    @FXML private TextField usernameField;
-    @FXML private TextField passwordField;
+public class UserProfileController implements GeneralFeatures{
 
     @FXML private Button exit;
-    @FXML private Button createAccountButton;
-    @FXML private Button goToLoginPage;
+    @FXML private Button backToHomeButton;
+    @FXML private Button updateDetailsButton;
+
+    @FXML private TextField nameTextField;
+    @FXML private TextField emailTextField;
+    @FXML private TextField userNameTextField;
+    @FXML private TextField passwordTextField;
+
+    @FXML private TextArea nameTextArea;
+    @FXML private TextArea emailTextArea;
+    @FXML private TextArea userNameTextArea;
+    @FXML private TextArea passwordTextArea;
 
     @FXML
-    private void redirectToLogInPage(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/project/mindpulse/UserLogin.fxml"));
+    public void redirectToProfile(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/project/mindpulse/UserProfile.fxml"));
         Parent MainMenuWindow = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Sign in");
-        Scene scene = new Scene(MainMenuWindow, 600, 400);
+        stage.setTitle("My Profile");
+        Scene scene = new Scene(MainMenuWindow, 798, 400);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private void createNewAccount(ActionEvent event) throws IOException {
-        String name = nameField.getText();
-        String email = emailField.getText();
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        boolean isUserCreated = UserHandler.createNewUser(name, email, username, password);
-        if (isUserCreated) {
-            System.out.println("Account created successfully!");
-            // Redirect to login page or show a success message
-
-            redirectToLogInPage(event);
-
-        } else {
-            System.out.println("Username or email already exists. Please try again.");
-            // Show an error message to the user
-        }
     }
 
     @FXML
@@ -93,5 +77,6 @@ public class CreateAccountController extends UserHandler implements GeneralFeatu
         stage.setScene(scene);
         stage.show();
     }
+
 
 }

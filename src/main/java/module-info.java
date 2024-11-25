@@ -1,12 +1,12 @@
 module org.project.mindpulse {
-    requires javafx.controls;
     requires javafx.fxml;
-    requires java.net.http;
     requires com.google.gson;
     requires java.sql;
-    requires javafx.media;
+    requires jdk.compiler;
+    requires javafx.web;
+
 
     opens org.project.mindpulse.Controllers to javafx.fxml;
 
-    exports org.project.mindpulse;
+    exports org.project.mindpulse.Application;
 }

@@ -1,14 +1,30 @@
 package org.project.mindpulse.CoreModules;
 
+import org.project.mindpulse.SystemManagement.UserHandler;
+
+import java.util.List;
+
 public class User {
+
     private int userId;
     private String name;
     private String email;
     private String username;
     private String password;
 
-    public User(int userId, String name, String email, String username, String password) {
+    private List<Category> favouriteCategories;
+
+    public User(int userId, String name, String email, String username, String password, List<Category> favouriteCategories) {
         this.userId = userId;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.favouriteCategories = favouriteCategories;
+    }
+
+    public User(int userid, String name, String email, String username, String password) {
+        this.userId = userid;
         this.name = name;
         this.email = email;
         this.username = username;
@@ -53,6 +69,19 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public List<Category> getFavouriteCategories() {
+        return favouriteCategories;
+    }
+
+    public void setFavouriteCategories(List<Category> favouriteCategories) {
+        this.favouriteCategories = favouriteCategories;
+    }
+
+    public void addFavouriteCategory(Category category) {
+        this.favouriteCategories.add(category);
     }
 
 }
